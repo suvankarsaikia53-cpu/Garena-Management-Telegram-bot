@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: garena-management-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app  # Assumes your file is named app.py
+    envVars:
+      - key: API_TOKEN
+        sync: false
+      - key: WEBHOOK_URL
+        sync: false
+      - key: PORT
+        value: 5000
